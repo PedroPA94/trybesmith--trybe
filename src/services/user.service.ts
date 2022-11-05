@@ -13,7 +13,7 @@ export default class UserService {
 
   async create(newUser: IUser): Promise<string> {
     validateNewUser(newUser);
-    await this.userModel.create(newUser);
-    return createJwtToken(newUser);
+    const id: number = await this.userModel.create(newUser);
+    return createJwtToken({ id, ...newUser });
   }
 }

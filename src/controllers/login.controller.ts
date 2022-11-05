@@ -1,9 +1,12 @@
-import LoginService from '../services/login.service';
+import { Request, Response } from 'express';
+import StatusCodes from '../helpers/httpStatusCodes';
+import { ILogin } from '../interfaces';
+import * as loginService from '../services/login.service';
 
-export default class LoginController {
-  loginService: LoginService;
-
-  constructor() {
-    this.loginService = new LoginService();
-  }
+export async function loginUser(req: Request, res: Response) {
+  const loginData: ILogin = req.body;
+  const token: string = await loginService.loginUser(loginData);
+  res.status(StatusCodes.OK).json({ token });
 }
+
+export default loginUser;

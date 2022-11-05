@@ -5,12 +5,15 @@ export interface IProduct {
   orderId?: number;
 }
 
-export interface IUser {
+export interface ILogin {
   id?: number;
   username: string;
+  password: string;
+}
+
+export interface IUser extends ILogin {
   classe: string;
   level: number;
-  password: string;
 }
 
 export interface IOrder {
