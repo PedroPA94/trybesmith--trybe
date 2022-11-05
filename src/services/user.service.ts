@@ -2,6 +2,7 @@ import createJwtToken from '../helpers/createJwtToken';
 import { IUser } from '../interfaces';
 import connection from '../models/connection';
 import UserModel from '../models/user.model';
+import { validateNewUser } from '../validations/validateInputs';
 
 export default class UserService {
   userModel: UserModel;
@@ -11,6 +12,7 @@ export default class UserService {
   }
 
   async create(newUser: IUser): Promise<string> {
+    validateNewUser(newUser);
     await this.userModel.create(newUser);
     return createJwtToken(newUser);
   }
