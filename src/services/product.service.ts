@@ -1,6 +1,7 @@
 import { IProduct } from '../interfaces';
 import connection from '../models/connection';
 import ProductModel from '../models/product.model';
+import { validateNewProduct } from '../validations/validateInputs';
 
 export default class ProductService {
   productModel: ProductModel;
@@ -10,6 +11,7 @@ export default class ProductService {
   }
 
   async create(newProduct: IProduct): Promise<number> {
+    validateNewProduct(newProduct);
     return this.productModel.create(newProduct);
   }
 }
