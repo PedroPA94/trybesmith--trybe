@@ -1,7 +1,7 @@
 import { ILogin, IProduct, IUser } from '../interfaces';
 import connection from '../models/connection';
 import UserModel from '../models/user.model';
-import { loginSchema, newProductSchema, newUserSchema } from './schemas';
+import { loginSchema, newOrderSchema, newProductSchema, newUserSchema } from './schemas';
 
 export function validateNewProduct(newProduct: IProduct): void {
   const { error } = newProductSchema.validate(newProduct);
@@ -27,4 +27,9 @@ export async function validateLogin(loginData: ILogin): Promise<number> {
   }
 
   return user.id as number;
+}
+
+export function validateNewOrder(newOrder: number[]): void {
+  const { error } = newOrderSchema.validate(newOrder);
+  if (error) throw error;
 }

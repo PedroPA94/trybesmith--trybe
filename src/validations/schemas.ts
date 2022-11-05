@@ -17,3 +17,9 @@ export const loginSchema = Joi.object<ILogin>({
   username: Joi.string().required(),
   password: Joi.string().required(),
 });
+
+export const newOrderSchema = Joi.array().items(Joi.number().required()).required().messages({
+  'any.required': '"productsIds" is required',
+  'array.includesRequiredUnknowns': '"productsIds" must include only numbers',
+  'array.base': '"productsIds" must be an array',
+});
