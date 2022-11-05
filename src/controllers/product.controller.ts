@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { SuccessfulRequest } from '../helpers/httpStatusCodes';
+import StatusCodes from '../helpers/httpStatusCodes';
 import { IProduct } from '../interfaces';
 import ProductService from '../services/product.service';
 
@@ -13,6 +13,11 @@ export default class ProductController {
   create = async (req: Request, res: Response) => {
     const newProduct: IProduct = req.body;
     const id = await this.productService.create(newProduct);
-    res.status(SuccessfulRequest.Created).json({ id, ...newProduct });
+    res.status(StatusCodes.Created).json({ id, ...newProduct });
+  };
+
+  findAll = async (req: Request, res: Response) => {
+    const products = await this.productService.findAll();
+    res.status(StatusCodes.OK).json(products);
   };
 }

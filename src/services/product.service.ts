@@ -14,4 +14,8 @@ export default class ProductService {
     validateNewProduct(newProduct);
     return this.productModel.create(newProduct);
   }
+
+  async findAll(): Promise<IProduct[]> {
+    return this.productModel.findAll();
+  }
 }

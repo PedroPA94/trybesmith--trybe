@@ -1,9 +1,8 @@
-export enum SuccessfulRequest {
+enum StatusCodes {
   OK = 200,
   Created,
-}
-
-export enum FailedRequest {
   ValidationError = 400,
   InvalidValue = 422,
 }
+
+export default StatusCodes;
