@@ -4,7 +4,7 @@ This project is a RESTful API for managing a medieval store - it sells products 
 
 The main focus of this project was to practice the recently learned **Typescript** language. Most of this project was written using `classes` as an introductory practice of Object-Oriented Programming (OOP). Typescript's `interfaces` were also used.
 
-The project was built with layered software architecture, with three layers: the Model layer, responsible for communicating with the database, the middle layer, Service, which validates the business rules and the Controller layer, which receives and responds HTTP requests.
+The project was built with a three-layered software architecture: the Model layer, responsible for communicating with the database, the Service layer in the middle, which validates the business rules and the Controller layer, which receives and responds HTTP requests.
 
 This project was developed while studying Back-end web development [@betrybe](https://github.com/betrybe). The files I worked on are in the ```/src``` folder. I got approval on 100% of this project's requirements.
 
